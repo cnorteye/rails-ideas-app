@@ -10,30 +10,34 @@
       </ul>
     </div>
   <% end %>
-
+<br>
   <div class="form-group">
-    <%= form.label :name, class: "col-md-4 control-label" %>
+    <%= form.label :name, class: "font-weight-bold" %>
     <%= form.text_field :name, class: "form-control" %>
   </div>
-
+<br>
   <div class="form-group">
-    <%= form.label :content, class: "col-md-4 control-label font-weight-bold" %>
+    <%= form.label :content, class: "font-weight-bold" %>
     <%= form.text_area :content, class: "form-control" %>
   </div>
-
+<br>
   <div class="form-group">
-    <%= form.label :category_id %>
+    <%= form.label :category_id, class: "form-weight-bold" %>
+    <br>
     <%= form.collection_select :category_id, Category.all, :id, :name %>
   </div>
-
+<br>
   <%= hidden_field_tag 'idea[user_id]', current_user.id %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :picture  %>
+    <br>
     <%= form.file_field :picture %>
   </div>
 
+  <br>
+
   <div class="form-group">
-    <%= form.submit class: "btn btn-default btn-primary col-sm-10" %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
