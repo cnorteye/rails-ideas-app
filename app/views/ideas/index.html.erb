@@ -1,17 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Ideas</h1>
-<% @ideas.in_groups_of(3) do |group| %>
-  <div class="row">
-    <% group.compact.each do |idea| %>
-      <div class="col-md-4">
-        <%= image_tag(idea.picture, :width => 150) if idea.picture.present? %>
+    <% @ideas.each do |idea| %>
+      <div class="shadow-sm p-3 mb-5 bg-white rounded">
+        <%= image_tag(idea.picture, :width => 300) if idea.picture.present? %>
         <h4><%= link_to idea.name, idea %></h4>
         <%= idea.content %>
       </div>
     <% end %>
-  </div>
-<% end %>
 
 <br>
 
