@@ -1,14 +1,20 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe CategoriesController, type: :controller do
-
   describe "POST #create" do
-    context "with valid attributes" do
-      it "create new category" do
-        @category = {name: "ministy"}
-        post :create, params: {category: @category.as_json}
-        expect(Category.count).to eq(1)
-      end
+    login_user
+    it "create new category" do
+      
+      expect {
+        post :create, :params => { :category => { :name => "Any Name" } }
+      }.to change(Category, :count).by(1)
+    end
+
+    it "update a category" do
+      expect {
+        post :edit, :params => { :category => { :name => "Any Name" } }
+      }
     end
   end
+
 end

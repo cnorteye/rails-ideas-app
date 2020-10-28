@@ -1,8 +1,6 @@
 FactoryBot.define do
-  
-    # factory :user do
-    #   email Faker::Internet.email
-    #   password Faker::Internet.password
-    # end
-
-  end
+  # factory :user do
+  #   sequence(:email) { |n| "test-#{n.to_s.rjust(3, "0")}@sample.com" }
+  #   password { "test101" }
+  # end
+end
